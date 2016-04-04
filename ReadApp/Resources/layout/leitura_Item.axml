@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/lendoLayout">
+    <LinearLayout
+        p1:orientation="horizontal"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/linearLayout5">
+        <LinearLayout
+            p1:orientation="horizontal"
+            p1:id="@+id/linearLayout3"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:layout_weight="60">
+            <LinearLayout
+                p1:orientation="vertical"
+                p1:layout_width="wrap_content"
+                p1:layout_height="wrap_content"
+                p1:layout_weight="60"
+                p1:id="@+id/linearLayout4"
+                p1:minWidth="25px"
+                p1:minHeight="25px">
+                <TextView
+                    p1:text="NomeLivro"
+                    p1:textAppearance="?android:attr/textAppearanceLarge"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="wrap_content"
+                    p1:id="@+id/nomeLivro"
+                    p1:textColor="#ff646464" />
+                <LinearLayout
+                    p1:orientation="horizontal"
+                    p1:layout_width="match_parent"
+                    p1:layout_height="wrap_content"
+                    p1:id="@+id/linearLayout2">
+                    <TextView
+                        p1:text="Pagina"
+                        p1:textAppearance="?android:attr/textAppearanceMedium"
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="match_parent"
+                        p1:id="@+id/paginaText"
+                        p1:textColor="#ff646464" />
+                    <TextView
+                        p1:text=" 000 "
+                        p1:textAppearance="?android:attr/textAppearanceMedium"
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="match_parent"
+                        p1:id="@+id/numeroPaginaAtual"
+                        p1:textColor="#ff646464" />
+                    <TextView
+                        p1:text="/"
+                        p1:textAppearance="?android:attr/textAppearanceMedium"
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="match_parent"
+                        p1:id="@+id/barraDeSeparacao"
+                        p1:textColor="#ff646464" />
+                    <TextView
+                        p1:text=" 000"
+                        p1:textAppearance="?android:attr/textAppearanceMedium"
+                        p1:layout_width="wrap_content"
+                        p1:layout_height="match_parent"
+                        p1:id="@+id/numeroPaginaTotal"
+                        p1:textColor="#ff646464" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            p1:text="Atualizar"
+            p1:id="@+id/atualizarLeitura"
+            p1:padding="10dp"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:textDirection="inherit"
+            p1:layoutDirection="inherit" />
+    </LinearLayout>
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        p1:id="@+id/barraDeProgresso"
+        p1:background="#ff919191"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content" />
+</LinearLayout>

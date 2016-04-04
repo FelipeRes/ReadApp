@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <TextView
+        android:text="Nome Livro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iniciarLeituraNomeLivro"
+        android:textAlignment="center" />
+    <TextView
+        android:text="Autor"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iniciarLeituraAutor"
+        android:textAlignment="center" />
+    <TextView
+        android:text="Ano"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iniciarLeituraAno"
+        android:textAlignment="center" />
+    <TextView
+        android:text="Quantidade Paginas"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iniciarLeituraQuantidadePaginas"
+        android:textAlignment="center" />
+</LinearLayout>

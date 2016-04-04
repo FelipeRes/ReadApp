@@ -1,0 +1,24 @@
+﻿<Properties StartupItem="ReadApp\ReadApp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus S (KitKat)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ReadApp\Fragmentos\Lendo.cs">
+    <Files>
+      <File FileName="ReadApp\DataBaseDAO.cs" Line="121" Column="58" />
+      <File FileName="ReadApp\MainActivity.cs" Line="24" Column="27" />
+      <File FileName="ReadApp\Fragmentos\QueroLer.cs" Line="61" Column="44" />
+      <File FileName="ReadApp\Fragmentos\Lendo.cs" Line="110" Column="33" />
+      <File FileName="ReadApp\LendoAdapter.cs" Line="62" Column="35" />
+      <File FileName="ReadApp\Fragmentos\Lido.cs" Line="117" Column="68" />
+      <File FileName="ReadApp\Objetos\Leitura.cs" Line="15" Column="3" />
+      <File FileName="ReadApp\Objetos\Livro.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Data.cs" Line="8" Column="4" />
+      <File FileName="ReadApp\Capitulos.cs" Line="20" Column="4" />
+      <File FileName="ReadApp\Enum\EstadoLeitura.cs" Line="19" Column="32" />
+      <File FileName="ReadApp\QueroLerAdapter.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ReadApp AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>

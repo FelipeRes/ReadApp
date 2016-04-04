@@ -1,0 +1,32 @@
+ReadApp.MainActivity, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.MainActivity
+ReadApp.MainActivity, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.MainActivity
+ReadApp.MainActivity;md5552382c2a550ef5b2d3c9438dd561b6b.MainActivity
+readapp.MainActivity;md5552382c2a550ef5b2d3c9438dd561b6b.MainActivity
+ReadApp.DataBaseDAO, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.DataBaseDAO
+ReadApp.DataBaseDAO, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.DataBaseDAO
+ReadApp.DataBaseDAO;md5552382c2a550ef5b2d3c9438dd561b6b.DataBaseDAO
+readapp.DataBaseDAO;md5552382c2a550ef5b2d3c9438dd561b6b.DataBaseDAO
+ReadApp.Lendo, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.Lendo
+ReadApp.Lendo, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.Lendo
+ReadApp.Lendo;md5552382c2a550ef5b2d3c9438dd561b6b.Lendo
+readapp.Lendo;md5552382c2a550ef5b2d3c9438dd561b6b.Lendo
+ReadApp.QueroLer, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
+ReadApp.QueroLer, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
+ReadApp.QueroLer;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
+readapp.QueroLer;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
+ReadApp.QueroLerAdapter, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLerAdapter
+ReadApp.QueroLerAdapter, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLerAdapter
+ReadApp.QueroLerAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLerAdapter
+readapp.QueroLerAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLerAdapter
+ReadApp.LendoAdapter, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.LendoAdapter
+ReadApp.LendoAdapter, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.LendoAdapter
+ReadApp.LendoAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.LendoAdapter
+readapp.LendoAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.LendoAdapter
+ReadApp.Capitulos, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
+ReadApp.Capitulos, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
+ReadApp.Capitulos;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
+readapp.Capitulos;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
+ReadApp.Lido, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
+ReadApp.Lido, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
+ReadApp.Lido;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
+readapp.Lido;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
