@@ -9,9 +9,11 @@ namespace ReadApp{
 		public DataBaseDAO (Context context) : base(context, "Veiculos.db", null, 1){
 		}
 		public override void OnCreate(SQLiteDatabase db){
-			string sql = "CREATE TABLE [Livros] (\n[id] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,\n[Nome] VARCHAR(50)  NULL,\n[Autor] VARCHAR(50)  NULL,\n[Ano] INTEGER  NULL,\n[TotalDePaginas] INTEGER  NULL,\n[Avaliacao] INTEGER  NULL\n)";
+			string sql = "CREATE TABLE [Livros] (\n[id] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,\n[Nome] VARCHAR(50)  NULL,\n[Autor] VARCHAR(50)  NULL,\n[Ano] INTEGER  NULL,\n[TotalDePaginas] INTEGER  NULL,\n[Avaliacao] FLOAT  NULL\n)";
 			db.ExecSQL (sql);
 			sql = "CREATE TABLE [Leituras] (\n[id]  INTEGER  NULL,\n[NomeLivro] VARCHAR(50)  NULL,\n[EstadoLeitura] VARCHAR(50)  NULL,\n[InicioLeitura] VARCHAR(50)  NULL,\n[TerminoLeitura] VARCHAR(50)  NULL,\n[PaginaAtual] INTEGER  NULL,\n[Comentario] TEXT  NULL\n)";
+			db.ExecSQL (sql);
+			sql = "CREATE TABLE [Generos] (\n[id]  INTEGER  NULL,\n[Genero] VARCHAR(50))";
 			db.ExecSQL (sql);
 		}
 		public override void OnUpgrade(SQLiteDatabase db, int oldVersion, int  newVersion){
@@ -40,6 +42,8 @@ namespace ReadApp{
 				v.autor = c.GetString (2);
 				v.ano =  c.GetInt(c.GetColumnIndex("Ano"));
 				v.qntPaginas = c.GetInt(c.GetColumnIndex("TotalDePaginas"));
+				v.avaliacao = c.GetFloat(c.GetColumnIndex("Avaliacao"));
+				v.genero = GetGenerosPorLivro (v);
 				lista.Add (v);
 			}
 			return lista;
@@ -81,6 +85,11 @@ namespace ReadApp{
 			values.Put ("TotalDePaginas", livro.qntPaginas);
 			WritableDatabase.Update ("Livros", values, "id =" + livro.id, null);
 		}
+		public void avaliarLivro(Livro livro){
+			ContentValues values = new ContentValues();
+			values.Put ("Avaliacao", livro.avaliacao);
+			WritableDatabase.Update ("Livros", values, "id =" + livro.id, null);
+		}
 		//==================================================================================================//
 
 		public void InserirLeitura(Leitura leitura){
@@ -90,7 +99,7 @@ namespace ReadApp{
 			cv.Put ("EstadoLeitura", leitura.estado.ToString());
 			cv.Put ("InicioLeitura", leitura.inicioLeitua.getDataString());
 			cv.Put ("EstadoLeitura", EstadoLeitura.Iniciado.ToString());
-			//cv.Put ("TerminoLeitura", leitura.terminoeitura.ToString(yyyyMMdd);
+			cv.Put ("TerminoLeitura", leitura.inicioLeitua.getDataString());
 			cv.Put ("PaginaAtual", 0);
 			WritableDatabase.Insert ("Leituras", null, cv);
 		}
@@ -104,8 +113,9 @@ namespace ReadApp{
 				v.livro = BuscarLivroId(c.GetInt (0));
 				v.estado = EstadoLeituraExtend.EstadoPorNome( c.GetString (2));
 				v.inicioLeitua = Data.gerarDataPorString(c.GetString(3));
-				//v.terminoeitura = Data.gerarDataPorString(c.GetString(4));
+				v.terminoeitura = Data.gerarDataPorString(c.GetString(4));
 				v.atualPaginas = c.GetInt (5);
+				v.comentario = c.GetString (6);
 				lista.Add (v);
 			}
 			return lista;
@@ -113,12 +123,13 @@ namespace ReadApp{
 		public void removerLeitura (Leitura leitura){
 			string sql = "DELETE FROM Leituras WHERE id = " + leitura.id;
 			WritableDatabase.ExecSQL (sql);
-			//WritableDatabase.Delete ("Leituras", "id = " + leitura.id, null);
 		}
 		public void AtualizarLeitura(Leitura leitura){
 			ContentValues values = new ContentValues();
 			values.Put ("PaginaAtual", leitura.atualPaginas); 
 			values.Put ("EstadoLeitura", leitura.estado.ToString()); 
+			values.Put ("TerminoLeitura", leitura.terminoeitura.getDataString()); 
+			values.Put ("Comentario", leitura.comentario); 
 			WritableDatabase.Update ("Leituras", values, "id =" + leitura.id + "", null);
 		}
 		public Leitura BuscarLeituraPorLivro(Livro livro){
@@ -152,6 +163,32 @@ namespace ReadApp{
 			}
 			return lidos;
 		}
+
+		//==================================================================================================//
+		public void InserirGenero(Livro livro){
+			for (int i = 0; i < livro.genero.Count; i++) {
+				ContentValues cv = new ContentValues ();
+				cv.Put ("id", livro.id);
+				cv.Put ("Genero", livro.genero[i].ToString());
+				WritableDatabase.Insert ("Generos", null, cv);
+			}
+		}
+
+		public List<Genero> GetGenerosPorLivro(Livro livro){
+			List<Genero> lista = new List<Genero> ();
+			string sql = "SELECT * FROM Generos;";
+			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
+			while (c.MoveToNext ()) {
+				Genero genero = new Genero ();
+				genero = GeneroExtend.GeneroPorNome( c.GetString(0));
+				/*if (c.GetColumnIndex ("id") == livro.id) {
+					lista.Add (genero);
+				}*/
+				lista.Add (genero);
+			}
+			return lista;
+		}
+
 	}
 }
 

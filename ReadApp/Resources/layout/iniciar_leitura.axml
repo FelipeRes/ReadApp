@@ -32,4 +32,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/iniciarLeituraQuantidadePaginas"
         android:textAlignment="center" />
+    <TextView
+        android:text="tags:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iniciarLeituraTags" />
 </LinearLayout>

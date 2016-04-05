@@ -8,7 +8,8 @@ namespace ReadApp{
 		public string autor;
 		public int ano;
 		public int qntPaginas;
-		public int avaliacao;
+		public float avaliacao;
+		public List<Genero> genero;
 		public List<Capitulo> capitulo;
 
 		public Livro (){
@@ -18,13 +19,28 @@ namespace ReadApp{
 			this.autor = autor;
 			this.ano = ano;
 			this.qntPaginas = qntPaginas;
+			genero = new List<Genero> ();
+			capitulo = new List<Capitulo> ();
 		}
 
 		public void adicionarCapitulo(Capitulo capitulo){
 			this.capitulo.Add (capitulo);
 		}
-		public void avaliar(int avaliacao){
+		public void avaliar(float avaliacao){
 			this.avaliacao = avaliacao;
+		}
+		public void adicionarGenero(Genero genero){
+			this.genero.Add (genero);
+		}
+		public void removerGenero(Genero genero){
+			this.genero.Remove (genero);
+		}
+		public string getGeneroString(){
+			string tags = "Tags: ";
+			for (int i = 0; i < genero.Count; i++) {
+				tags += " / " + genero [i].ToString ();
+			}
+			return tags;
 		}
 	}
 }

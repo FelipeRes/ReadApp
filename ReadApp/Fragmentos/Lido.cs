@@ -28,31 +28,46 @@ namespace ReadApp{
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			//infla o layout de list view
 			base.OnCreateView (inflater, container, savedInstanceState);
-			view = inflater.Inflate (Resource.Layout.lendo_tab, container, false);
+			view = inflater.Inflate (Resource.Layout.lido_tab, container, false);
 			//pega banco de dados
 			database = new DataBaseDAO (view.Context);
 			lista = database.ListaLidos();
 			//QueroLerAdapter
-			LendoAdapter adapter = new LendoAdapter(this.Activity,lista,this);
-			listaView = (ListView)view.FindViewById<ListView> (Resource.Id.lendoListViewTab);
+			LidoAdapter adapter = new LidoAdapter(this.Activity,lista);
+			listaView = (ListView)view.FindViewById<ListView> (Resource.Id.lido_listView);
 			listaView.Clickable = true;
 			listaView.Adapter = adapter;
 			//listaView.item
 			listaView.ItemClick += (s, e) => {
+				DataBaseDAO database  = new DataBaseDAO(view.Context);
 				View itemView = e.View; // pega a view do item
-				Livro livro = database.BuscarLivroNome(e.View.FindViewById<TextView>(Resource.Id.nomeLivro).Text);
+				Livro livro = database.BuscarLivroNome(e.View.FindViewById<TextView>(Resource.Id.lidoNomeLivro).Text);
 				Leitura leitura = database.BuscarLeituraPorLivro(livro);
 				var alert = new AlertDialog.Builder(view.Context); //cria a alert
-				viewAlert = inflater.Inflate(Resource.Layout.lendo_item, null); //infla o menu dela
+				viewAlert = inflater.Inflate(Resource.Layout.lido_informacao, null); //infla o menu dela
 
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoNomeLivro).Text = livro.nome; //adiciona o nome do livro no alert
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoAutor).Text = "Autor: " + livro.autor; //adiciona o nome do livro no alert
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoAnoPublicacao).Text = "Ano: " + livro.ano.ToString(); //adiciona o nome do livro no alert
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoPaginaAtual).Text = "Paginas: " + leitura.atualPaginas.ToString(); //adiciona o nome do livro no alert
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoPagonaTotal).Text = livro.qntPaginas.ToString(); //adiciona o nome do livro no alert
-				viewAlert.FindViewById<TextView>(Resource.Id.lendoInicioDaLeitura).Text = "Inicio da leitura em: " + leitura.inicioLeitua.getDataString();
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoNomeLivro).Text = livro.nome; //adiciona o nome do livro no alert
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoAutor).Text = "Autor: " + livro.autor; //adiciona o nome do livro no alert
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoAnoPublicacao).Text = "Ano: " + livro.ano.ToString(); //rank do livro
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoPagonaTotal).Text = "Paginas: " + livro.qntPaginas.ToString(); //rank do livro
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoInicioDaLeitura).Text = "Iniciou Leitura em: " + leitura.inicioLeitua.getDataString(); 
+				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoTerminoLeitura).Text = "Terminou: " + leitura.terminoeitura.getDataString(); 
+				viewAlert.FindViewById<EditText>(Resource.Id.lidoInfoComentario).Text = leitura.comentario;
 
-				Button capitulosButton = viewAlert.FindViewById<Button>(Resource.Id.CapitulosButton);
+				EditText comentario = (EditText)viewAlert.FindViewById<EditText>(Resource.Id.lidoInfoComentario);
+				comentario.AfterTextChanged += (sComent,eComent) => {
+					leitura.comentario = comentario.Text;
+					database.AtualizarLeitura(leitura);
+				};
+
+				RatingBar rank = (RatingBar)viewAlert.FindViewById<RatingBar>(Resource.Id.lidoInfoRank);
+				rank.RatingBarChange += (ratingS, ratingE) => {
+					livro.avaliacao = rank.Rating;
+					database.avaliarLivro(livro);
+					OnResume();
+				};
+
+				Button capitulosButton = viewAlert.FindViewById<Button>(Resource.Id.lidoInfoCapitulosButton);
 				capitulosButton.Click += (Scap, Ecap) => {
 					Intent capitulos = new Intent(this.Activity, typeof(Capitulos));
 					StartActivity(capitulos);
@@ -64,7 +79,7 @@ namespace ReadApp{
 
 			listaView.ItemLongClick += (s, e) => {
 				View itemView = e.View; // pega a view do item
-				Livro livro = database.BuscarLivroNome(e.View.FindViewById<TextView>(Resource.Id.nomeLivro).Text);
+				Livro livro = database.BuscarLivroNome(e.View.FindViewById<TextView>(Resource.Id.lidoNomeLivro).Text);
 				Leitura leitura = database.BuscarLeituraPorLivro(livro);
 				AlertDialog.Builder builder = new AlertDialog.Builder(Activity);
 				AlertDialog alert = builder.Create(); //cria a alert
@@ -114,13 +129,10 @@ namespace ReadApp{
 		public override void OnResume (){
 			base.OnResume ();
 			lista = database.ListaLidos();
-			LendoAdapter adapter = new LendoAdapter(this.Activity,lista,this);
-			listaView = (ListView)view.FindViewById<ListView> (Resource.Id.lendoListViewTab);
+			LidoAdapter adapter = new LidoAdapter(this.Activity,lista);
+			listaView = (ListView)view.FindViewById<ListView> (Resource.Id.lido_listView);
 			listaView.Adapter = adapter;
 		}
-
 	}
-
-
 }
 

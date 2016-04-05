@@ -53,6 +53,7 @@ namespace ReadApp{
 				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraAutor).Text = livro.autor; //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraAno).Text = "Ano:" + livro.ano.ToString(); //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraQuantidadePaginas).Text = livro.qntPaginas.ToString() + " Páginas"; //adiciona o nome do livro no alert
+				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraTags).Text = livro.getGeneroString();
 
 				alert.SetView(viewAlert);
 				Leitura estaLendo = database.BuscarLeituraPorLivro(livro);

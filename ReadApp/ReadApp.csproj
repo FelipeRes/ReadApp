@@ -54,11 +54,13 @@
     <Compile Include="Fragmentos\Lendo.cs" />
     <Compile Include="Fragmentos\QueroLer.cs" />
     <Compile Include="Enum\EstadoLeitura.cs" />
-    <Compile Include="QueroLerAdapter.cs" />
-    <Compile Include="LendoAdapter.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Capitulos.cs" />
     <Compile Include="Fragmentos\Lido.cs" />
+    <Compile Include="Adapters\LendoAdapter.cs" />
+    <Compile Include="Adapters\QueroLerAdapter.cs" />
+    <Compile Include="Adapters\LidoAdapter.cs" />
+    <Compile Include="Enum\Genero.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -85,6 +87,9 @@
     <AndroidResource Include="Resources\layout\livro_opcoes.axml" />
     <AndroidResource Include="Resources\layout\sim_nao.axml" />
     <AndroidResource Include="Resources\layout\editar_livro.axml" />
+    <AndroidResource Include="Resources\layout\lido_item.axml" />
+    <AndroidResource Include="Resources\layout\lido_tab.axml" />
+    <AndroidResource Include="Resources\layout\lido_informacao.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -92,6 +97,7 @@
     <Folder Include="Objetos\" />
     <Folder Include="Fragmentos\" />
     <Folder Include="Enum\" />
+    <Folder Include="Adapters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

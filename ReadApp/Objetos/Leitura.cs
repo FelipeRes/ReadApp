@@ -9,8 +9,11 @@ namespace ReadApp{
 		public Data inicioLeitua;
 		public Data terminoeitura;
 		public EstadoLeitura estado;
+		public string comentario;
+
 
 		public Leitura (){
+			this.comentario = "";
 		}
 
 		public Leitura (Livro livro){
@@ -19,6 +22,7 @@ namespace ReadApp{
 			DateTime data = DateTime.Now;
 			inicioLeitua = new Data (data.Day, data.Month,data.Year);
 			estado = EstadoLeitura.Iniciado;
+			this.comentario = "Bixo Piruleta";
 		}
 	}
 }
