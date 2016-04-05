@@ -40,6 +40,7 @@ namespace ReadApp{
 				view.FindViewById<TextView> (Resource.Id.numeroPaginaAtual).Text = item.atualPaginas.ToString ();
 				view.FindViewById<ProgressBar> (Resource.Id.barraDeProgresso2).Max = item.livro.qntPaginas;
 				view.FindViewById<ProgressBar> (Resource.Id.barraDeProgresso2).Progress = item.atualPaginas;
+
 				view.FindViewById<ImageView> (Resource.Id.lendoReadUpdateImage).Click += (s,e) =>{
 					AlertDialog.Builder builder = new AlertDialog.Builder(context);
 					AlertDialog alert = builder.Create(); //cria a alert

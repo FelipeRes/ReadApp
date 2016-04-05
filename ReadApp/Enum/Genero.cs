@@ -31,7 +31,7 @@ namespace ReadApp{
 				return Genero.Aventura;
 			}else if (genero == "Guia") {
 				return Genero.Guia;
-			}else {
+			}else{
 				return Genero.Biografia;
 			}
 		}

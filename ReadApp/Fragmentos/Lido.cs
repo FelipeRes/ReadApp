@@ -50,6 +50,7 @@ namespace ReadApp{
 				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoAutor).Text = "Autor: " + livro.autor; //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoAnoPublicacao).Text = "Ano: " + livro.ano.ToString(); //rank do livro
 				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoPagonaTotal).Text = "Paginas: " + livro.qntPaginas.ToString(); //rank do livro
+				viewAlert.FindViewById<TextView> (Resource.Id.lidoInfoTag).Text = livro.getGeneroString();
 				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoInicioDaLeitura).Text = "Iniciou Leitura em: " + leitura.inicioLeitua.getDataString(); 
 				viewAlert.FindViewById<TextView>(Resource.Id.lidoInfoTerminoLeitura).Text = "Terminou: " + leitura.terminoeitura.getDataString(); 
 				viewAlert.FindViewById<EditText>(Resource.Id.lidoInfoComentario).Text = leitura.comentario;
@@ -60,6 +61,7 @@ namespace ReadApp{
 					database.AtualizarLeitura(leitura);
 				};
 
+				viewAlert.FindViewById<RatingBar>(Resource.Id.lidoInfoRank).Rating = livro.avaliacao;
 				RatingBar rank = (RatingBar)viewAlert.FindViewById<RatingBar>(Resource.Id.lidoInfoRank);
 				rank.RatingBarChange += (ratingS, ratingE) => {
 					livro.avaliacao = rank.Rating;

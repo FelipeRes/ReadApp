@@ -55,6 +55,7 @@ namespace ReadApp{
 				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraQuantidadePaginas).Text = livro.qntPaginas.ToString() + " Páginas"; //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.iniciarLeituraTags).Text = livro.getGeneroString();
 
+
 				alert.SetView(viewAlert);
 				Leitura estaLendo = database.BuscarLeituraPorLivro(livro);
 				if(estaLendo == null){
@@ -90,16 +91,36 @@ namespace ReadApp{
 						editLivro.ano = int.Parse(editarView.FindViewById<TextView>(Resource.Id.editarAnoLivro).Text);
 						editLivro.qntPaginas = int.Parse(editarView.FindViewById<TextView>(Resource.Id.editarQuantidadePaginasLivro).Text);
 						editLivro.id = livro.id;
+						editLivro.genero = new List<Genero>();
+
+						List<CheckBox> checkBoxList = new List<CheckBox>();
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarRomance));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarTerror));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarFiccao));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarEpico));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarFantaisa));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarDidatico));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarAventura));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarGuia));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarBiografia));
+						for(int i = 0; i<checkBoxList.Count; i++){
+							if(checkBoxList[i].Checked){
+								editLivro.adicionarGenero(GeneroExtend.GeneroPorNome(checkBoxList[i].Text));
+							}
+						}
+
 						database.editarLivro(editLivro);
 						OnResume();
 					});
 					editarAlert.SetView(editarView);
 					editarAlert.Create().Show(); //mostra alert
 				};
+
 				capitulosfoButton.Click += (AlterarSender,AlterarArgs) => {
 					Intent capitulos = new Intent(this.Activity, typeof(Capitulos));
 					StartActivity(capitulos);
 				};
+
 				removerButton.Click += (AlterarSender,AlterarArgs) => {
 					var removeAlert = new AlertDialog.Builder(e.View.Context); //cria a alert
 					View removeView = inflater.Inflate(Resource.Layout.sim_nao, null); //infla o menu dela
@@ -107,6 +128,7 @@ namespace ReadApp{
 						leitura = database.BuscarLeituraPorLivro(livro);
 						if(leitura != null){
 							database.removerLeitura(leitura);
+							database.removerGeneroLivro(livro);
 						}
 						database.removerLivro(livro);
 						OnResume();

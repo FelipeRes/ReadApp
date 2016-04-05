@@ -48,6 +48,12 @@
             android:id="@+id/lendoPagonaTotal" />
     </LinearLayout>
     <TextView
+        android:text="tags:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lendoTag" />
+    <TextView
         android:text="inicio da leitura"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"

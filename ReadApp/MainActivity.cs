@@ -49,12 +49,11 @@ namespace ReadApp{
 					for(int i = 0; i<checkBoxList.Count; i++){
 						if(checkBoxList[i].Checked){
 							livro.adicionarGenero(GeneroExtend.GeneroPorNome(checkBoxList[i].Text));
+							Android.Widget.Toast.MakeText(view.Context,checkBoxList[i].Text, Android.Widget.ToastLength.Short).Show();
 						}
 					}
-
 					DataBaseDAO database = new DataBaseDAO(this);
 					database.InserirLivro(livro);
-					database.InserirGenero(livro);
 					queroLer.OnResume();
 				});
 				alert.Create().Show();

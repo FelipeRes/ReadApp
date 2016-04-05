@@ -51,6 +51,7 @@ namespace ReadApp{
 				viewAlert.FindViewById<TextView>(Resource.Id.lendoPaginaAtual).Text = "Paginas: " + leitura.atualPaginas.ToString(); //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.lendoPagonaTotal).Text = livro.qntPaginas.ToString(); //adiciona o nome do livro no alert
 				viewAlert.FindViewById<TextView>(Resource.Id.lendoInicioDaLeitura).Text = "Inicio da leitura em: " + leitura.inicioLeitua.getDataString();
+				viewAlert.FindViewById<TextView> (Resource.Id.lendoTag).Text = livro.getGeneroString();
 
 				Button capitulosButton = viewAlert.FindViewById<Button>(Resource.Id.CapitulosButton);
 				capitulosButton.Click += (Scap, Ecap) => {

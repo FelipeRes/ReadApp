@@ -38,7 +38,7 @@ namespace ReadApp{
 		public string getGeneroString(){
 			string tags = "Tags: ";
 			for (int i = 0; i < genero.Count; i++) {
-				tags += " / " + genero [i].ToString ();
+				tags += " - " + genero [i].ToString ();
 			}
 			return tags;
 		}

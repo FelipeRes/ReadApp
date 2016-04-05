@@ -30,6 +30,11 @@ namespace ReadApp{
 			cv.Put ("TotalDePaginas", livro.qntPaginas);
 			cv.Put ("Avaliacao", livro.avaliacao);
 			WritableDatabase.Insert ("Livros", null, cv);
+			String sql = "SELECT id FROM Livros ORDER BY id DESC LIMIT 1";
+			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
+			c.MoveToNext ();
+			livro.id = c.GetInt (0);
+			InserirGeneros (livro);
 		}
 		public List<Livro> ListaLivros(){
 			List<Livro> lista = new List<Livro> ();
@@ -84,6 +89,12 @@ namespace ReadApp{
 			values.Put ("Ano", livro.ano); 
 			values.Put ("TotalDePaginas", livro.qntPaginas);
 			WritableDatabase.Update ("Livros", values, "id =" + livro.id, null);
+			removerGeneroLivro(livro);
+			String sql = "SELECT id FROM Livros ORDER BY id DESC LIMIT 1";
+			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
+			c.MoveToNext ();
+			livro.id = c.GetInt (0);
+			InserirGeneros (livro);
 		}
 		public void avaliarLivro(Livro livro){
 			ContentValues values = new ContentValues();
@@ -165,12 +176,14 @@ namespace ReadApp{
 		}
 
 		//==================================================================================================//
-		public void InserirGenero(Livro livro){
-			for (int i = 0; i < livro.genero.Count; i++) {
-				ContentValues cv = new ContentValues ();
-				cv.Put ("id", livro.id);
-				cv.Put ("Genero", livro.genero[i].ToString());
-				WritableDatabase.Insert ("Generos", null, cv);
+		public void InserirGeneros(Livro livro){
+			if (livro.genero != null) {
+				for (int i = 0; i < livro.genero.Count; i++) {
+					ContentValues cv = new ContentValues ();
+					cv.Put ("id", livro.id);
+					cv.Put ("Genero", livro.genero [i].ToString ());
+					WritableDatabase.Insert ("Generos", null, cv);
+				}
 			}
 		}
 
@@ -179,14 +192,16 @@ namespace ReadApp{
 			string sql = "SELECT * FROM Generos;";
 			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
 			while (c.MoveToNext ()) {
-				Genero genero = new Genero ();
-				genero = GeneroExtend.GeneroPorNome( c.GetString(0));
-				/*if (c.GetColumnIndex ("id") == livro.id) {
+				Genero genero = GeneroExtend.GeneroPorNome( c.GetString(1));
+				if (c.GetInt(c.GetColumnIndex ("id")) == livro.id) {
 					lista.Add (genero);
-				}*/
-				lista.Add (genero);
+				}
 			}
 			return lista;
+		}
+		public void removerGeneroLivro(Livro livro){
+			string sql = "DELETE FROM Generos WHERE id = " + livro.id;
+			WritableDatabase.ExecSQL (sql);
 		}
 
 	}
