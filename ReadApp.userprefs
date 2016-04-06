@@ -1,17 +1,23 @@
 ﻿<Properties StartupItem="ReadApp\ReadApp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.Nexus S (KitKat)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ReadApp\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ReadApp\Fragmentos\QueroLer.cs">
     <Files>
-      <File FileName="ReadApp\DataBaseDAO.cs" Line="269" Column="6" />
+      <File FileName="ReadApp\DataBaseDAO.cs" Line="16" Column="29" />
       <File FileName="ReadApp\MainActivity.cs" Line="18" Column="3" />
-      <File FileName="ReadApp\Fragmentos\QueroLer.cs" Line="154" Column="4" />
-      <File FileName="ReadApp\Fragmentos\Lendo.cs" Line="60" Column="42" />
-      <File FileName="ReadApp\Fragmentos\Lido.cs" Line="130" Column="46" />
-      <File FileName="ReadApp\CapitulosActivity.cs" Line="80" Column="18" />
+      <File FileName="ReadApp\Fragmentos\QueroLer.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Fragmentos\Lendo.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Fragmentos\Lido.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\CapitulosActivity.cs" Line="1" Column="1" />
       <File FileName="ReadApp\Adapters\CapituloAdapter.cs" Line="1" Column="1" />
-      <File FileName="ReadApp\Objetos\Capitulo.cs" Line="5" Column="17" />
-      <File FileName="ReadApp\Objetos\Livro.cs" Line="12" Column="30" />
-      <File FileName="ReadApp\Adapters\LendoAdapter.cs" Line="67" Column="11" />
+      <File FileName="ReadApp\Adapters\LendoAdapter.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Modelo\Livro.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Modelo\Capitulo.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Modelo\Leitura.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Enum\EstadoLeitura.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Enum\Genero.cs" Line="17" Column="52" />
+      <File FileName="ReadApp\Data.cs" Line="5" Column="59" />
+      <File FileName="ReadApp\Adapters\QueroLerAdapter.cs" Line="1" Column="1" />
+      <File FileName="ReadApp\Adapters\LidoAdapter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

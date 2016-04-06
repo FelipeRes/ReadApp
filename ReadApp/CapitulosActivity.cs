@@ -46,6 +46,7 @@ namespace ReadApp{
 					capitulo.paginaFinal = int.Parse(view.FindViewById<EditText>(Resource.Id.inserirCapituloPaginaFinal).Text);
 					capitulo.livro = livro;
 					database.InserirCapitulo(capitulo);
+					OnResume();
 				});
 
 				alert.Create().Show();
