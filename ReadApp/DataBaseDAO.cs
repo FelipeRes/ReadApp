@@ -15,6 +15,8 @@ namespace ReadApp{
 			db.ExecSQL (sql);
 			sql = "CREATE TABLE [Generos] (\n[id]  INTEGER  NULL,\n[Genero] VARCHAR(50))";
 			db.ExecSQL (sql);
+			sql = "CREATE TABLE [Capitulos] (\n[id] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT,\n[livroId] INTEGER  NULL,\n[Numero] INTEGER  NULL,\n[NomeCapitulo] VARCHAR(50)  NULL,\n[Comentario] TEXT  NULL,\n[PaginaInicial] INTEGER  NULL,\n[PaginaFinal] INTEGER  NULL\n)";
+			db.ExecSQL (sql);
 		}
 		public override void OnUpgrade(SQLiteDatabase db, int oldVersion, int  newVersion){
 			string sql = "DROP TABLE IF EXISTS Veiculo;";
@@ -90,10 +92,6 @@ namespace ReadApp{
 			values.Put ("TotalDePaginas", livro.qntPaginas);
 			WritableDatabase.Update ("Livros", values, "id =" + livro.id, null);
 			removerGeneroLivro(livro);
-			String sql = "SELECT id FROM Livros ORDER BY id DESC LIMIT 1";
-			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
-			c.MoveToNext ();
-			livro.id = c.GetInt (0);
 			InserirGeneros (livro);
 		}
 		public void avaliarLivro(Livro livro){
@@ -203,7 +201,79 @@ namespace ReadApp{
 			string sql = "DELETE FROM Generos WHERE id = " + livro.id;
 			WritableDatabase.ExecSQL (sql);
 		}
+		//==================================================================================================//
+		public void InserirCapitulo(Capitulo capitulo){
+			ContentValues cv = new ContentValues ();
+			cv.Put ("livroId", capitulo.livro.id);
+			cv.Put ("Numero", capitulo.numero);
+			cv.Put ("NomeCapitulo", capitulo.nomeCapitulo);
+			cv.Put ("Comentario", capitulo.cometario);
+			cv.Put ("PaginaInicial", capitulo.paginaInicial);
+			cv.Put ("PaginaFinal", capitulo.paginaFinal);
+			WritableDatabase.Insert ("Capitulos", null, cv);
+		}
+		public List<Capitulo> ListaCapitulos(){
+			List<Capitulo> lista = new List<Capitulo> ();
+			string sql = "SELECT * FROM Capitulos;";
+			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
+			while (c.MoveToNext ()) {
+				Capitulo v = new Capitulo ();
+				v.livroId = c.GetInt (c.GetColumnIndex("livroId"));
+				v.numero = c.GetInt(c.GetColumnIndex("Numero"));
+				v.nomeCapitulo = c.GetString(c.GetColumnIndex("NomeCapitulo"));
+				v.cometario =  c.GetString(c.GetColumnIndex("Comentario"));
+				v.paginaInicial = c.GetInt(c.GetColumnIndex("PaginaInicial"));
+				v.paginaFinal = c.GetInt(c.GetColumnIndex("PaginaFinal"));
+				v.livro = BuscarLivroId(v.livroId);
+				v.id = c.GetInt (c.GetColumnIndex("id"));
+				lista.Add (v);
+			}
+			return lista;
+		}
+		public List<Capitulo> ListaCapitulosPorLivro(Livro livro){
+			List<Capitulo> lista = new List<Capitulo> ();
+			string sql = "SELECT * FROM Capitulos;";
+			Android.Database.ICursor c = ReadableDatabase.RawQuery (sql, null);
+			while (c.MoveToNext ()) {
+				Capitulo v = new Capitulo ();
+				v.livroId = c.GetInt (c.GetColumnIndex("livroId"));
+				v.numero = c.GetInt(c.GetColumnIndex("Numero"));
+				v.nomeCapitulo = c.GetString(c.GetColumnIndex("NomeCapitulo"));
+				v.cometario =  c.GetString(c.GetColumnIndex("Comentario"));
+				v.paginaInicial = c.GetInt(c.GetColumnIndex("PaginaInicial"));
+				v.paginaFinal = c.GetInt(c.GetColumnIndex("PaginaFinal"));
+				v.livro = BuscarLivroId(v.livroId);
+				v.id = c.GetInt (c.GetColumnIndex("id"));
+				if (livro.id == v.livroId) {
+					lista.Add (v);
+				}
+			}
+			return lista;
+		}
 
+		public Capitulo BuscarCapituloPorId(int id){
+			List<Capitulo> lista = ListaCapitulos ();
+			for (int i = 0; i < lista.Count; i++) {
+				if (lista [i].id == id) {
+					return lista [i];
+				}
+			}
+			return null;
+		}
+		public void removerCapitulo(Capitulo capitulo){
+			string sql = "DELETE FROM Capitulos WHERE id = " + capitulo.id;
+			WritableDatabase.ExecSQL (sql);
+		}
+		public void AtualizarCapitulo(Capitulo capitulo){
+			ContentValues values = new ContentValues();
+			//values.Put ("livroId", capitulo.livro.id);
+			values.Put ("Numero", capitulo.numero);
+			values.Put ("NomeCapitulo", capitulo.nomeCapitulo);
+			values.Put ("Comentario", capitulo.cometario);
+			values.Put ("PaginaInicial", capitulo.paginaInicial);
+			values.Put ("PaginaFinal", capitulo.paginaFinal);
+			WritableDatabase.Update ("Capitulos", values, "id =" + capitulo.id + "", null);
+		}
 	}
 }
 

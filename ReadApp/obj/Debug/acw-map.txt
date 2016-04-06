@@ -14,10 +14,6 @@ ReadApp.QueroLer, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
 ReadApp.QueroLer, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
 ReadApp.QueroLer;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
 readapp.QueroLer;md5552382c2a550ef5b2d3c9438dd561b6b.QueroLer
-ReadApp.Capitulos, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
-ReadApp.Capitulos, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
-ReadApp.Capitulos;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
-readapp.Capitulos;md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos
 ReadApp.Lido, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
 ReadApp.Lido, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
 ReadApp.Lido;md5552382c2a550ef5b2d3c9438dd561b6b.Lido
@@ -34,3 +30,11 @@ ReadApp.LidoAdapter, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.LidoAdapter
 ReadApp.LidoAdapter, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.LidoAdapter
 ReadApp.LidoAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.LidoAdapter
 readapp.LidoAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.LidoAdapter
+ReadApp.CapitulosActivity, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.CapitulosActivity
+ReadApp.CapitulosActivity, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.CapitulosActivity
+ReadApp.CapitulosActivity;md5552382c2a550ef5b2d3c9438dd561b6b.CapitulosActivity
+readapp.CapitulosActivity;md5552382c2a550ef5b2d3c9438dd561b6b.CapitulosActivity
+ReadApp.CapituloAdapter, ReadApp;md5552382c2a550ef5b2d3c9438dd561b6b.CapituloAdapter
+ReadApp.CapituloAdapter, ReadApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5552382c2a550ef5b2d3c9438dd561b6b.CapituloAdapter
+ReadApp.CapituloAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.CapituloAdapter
+readapp.CapituloAdapter;md5552382c2a550ef5b2d3c9438dd561b6b.CapituloAdapter

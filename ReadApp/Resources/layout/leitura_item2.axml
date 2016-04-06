@@ -69,8 +69,8 @@
             p1:baselineAlignBottom="true"
             p1:scaleType="centerInside"
             p1:layout_marginRight="20dp"
-            p1:scaleX="0.5"
-            p1:scaleY="0.5" />
+            p1:scaleX="0.8"
+            p1:scaleY="0.8" />
     </LinearLayout>
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"

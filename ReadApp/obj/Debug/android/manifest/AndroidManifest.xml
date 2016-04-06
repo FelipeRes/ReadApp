@@ -11,7 +11,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:label="Capitulos" android:name="md5552382c2a550ef5b2d3c9438dd561b6b.Capitulos" />
+    <activity android:label="Capitulos" android:name="md5552382c2a550ef5b2d3c9438dd561b6b.CapitulosActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="felipe.ifpi.edu.readapp.readapp.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

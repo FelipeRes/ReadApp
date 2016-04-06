@@ -117,7 +117,8 @@ namespace ReadApp{
 				};
 
 				capitulosfoButton.Click += (AlterarSender,AlterarArgs) => {
-					Intent capitulos = new Intent(this.Activity, typeof(Capitulos));
+					Intent capitulos = new Intent(this.Activity, typeof(CapitulosActivity));
+					capitulos.PutExtra("LivroId", livro.id);
 					StartActivity(capitulos);
 				};
 

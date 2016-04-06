@@ -56,11 +56,6 @@
         android:progress="1"
         android:secondaryProgress="1"
         android:animationResolution="@android:integer/config_shortAnimTime" />
-    <Button
-        android:text="Capitulos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lidoInfoCapitulosButton" />
     <LinearLayout
         android:focusable="true"
         android:focusableInTouchMode="true"

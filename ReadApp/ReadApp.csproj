@@ -55,12 +55,13 @@
     <Compile Include="Fragmentos\QueroLer.cs" />
     <Compile Include="Enum\EstadoLeitura.cs" />
     <Compile Include="Data.cs" />
-    <Compile Include="Capitulos.cs" />
     <Compile Include="Fragmentos\Lido.cs" />
     <Compile Include="Adapters\LendoAdapter.cs" />
     <Compile Include="Adapters\QueroLerAdapter.cs" />
     <Compile Include="Adapters\LidoAdapter.cs" />
     <Compile Include="Enum\Genero.cs" />
+    <Compile Include="CapitulosActivity.cs" />
+    <Compile Include="Adapters\CapituloAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -90,6 +91,9 @@
     <AndroidResource Include="Resources\layout\lido_item.axml" />
     <AndroidResource Include="Resources\layout\lido_tab.axml" />
     <AndroidResource Include="Resources\layout\lido_informacao.axml" />
+    <AndroidResource Include="Resources\layout\capitulo_Item.axml" />
+    <AndroidResource Include="Resources\layout\adicionar_capitulo.axml" />
+    <AndroidResource Include="Resources\layout\capitulo_informacao.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

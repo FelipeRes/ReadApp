@@ -69,11 +69,12 @@ namespace ReadApp{
 					OnResume();
 				};
 
-				Button capitulosButton = viewAlert.FindViewById<Button>(Resource.Id.lidoInfoCapitulosButton);
+				/*Button capitulosButton = viewAlert.FindViewById<Button>(Resource.Id.lidoInfoCapitulosButton);
 				capitulosButton.Click += (Scap, Ecap) => {
-					Intent capitulos = new Intent(this.Activity, typeof(Capitulos));
+					Intent capitulos = new Intent(this.Activity, typeof(CapitulosActivity));
+					capitulos.PutExtra("LivroId", livro.id);
 					StartActivity(capitulos);
-				};
+				};*/
 
 				alert.SetView(viewAlert);
 				alert.Create().Show(); //mostra alert
@@ -101,6 +102,23 @@ namespace ReadApp{
 						editLivro.ano = int.Parse(editarView.FindViewById<TextView>(Resource.Id.editarAnoLivro).Text);
 						editLivro.qntPaginas = int.Parse(editarView.FindViewById<TextView>(Resource.Id.editarQuantidadePaginasLivro).Text);
 						editLivro.id = livro.id;
+						editLivro.genero = new List<Genero>();
+
+						List<CheckBox> checkBoxList = new List<CheckBox>();
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarRomance));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarTerror));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarFiccao));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarEpico));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarFantaisa));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarDidatico));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarAventura));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarGuia));
+						checkBoxList.Add(editarView.FindViewById<CheckBox>(Resource.Id.editarBiografia));
+						for(int i = 0; i<checkBoxList.Count; i++){
+							if(checkBoxList[i].Checked){
+								editLivro.adicionarGenero(GeneroExtend.GeneroPorNome(checkBoxList[i].Text));
+							}
+						}
 						database.editarLivro(editLivro);
 						OnResume();
 					});
@@ -108,7 +126,8 @@ namespace ReadApp{
 					editarAlert.Create().Show(); //mostra alert
 				};
 				capitulosfoButton.Click += (AlterarSender,AlterarArgs) => {
-					Intent capitulos = new Intent(this.Activity, typeof(Capitulos));
+					Intent capitulos = new Intent(this.Activity, typeof(CapitulosActivity));
+					capitulos.PutExtra("LivroId", livro.id);
 					StartActivity(capitulos);
 				};
 				removerButton.Click += (AlterarSender,AlterarArgs) => {

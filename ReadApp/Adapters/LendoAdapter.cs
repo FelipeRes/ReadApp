@@ -55,17 +55,8 @@ namespace ReadApp{
 						if(item.livro.qntPaginas <= paginaValor){
 							var removeAlert = new AlertDialog.Builder(context); //cria a alert
 							View teminoView = context.LayoutInflater.Inflate(Resource.Layout.sim_nao, null); //infla o menu dela
-							teminoView.FindViewById<TextView>(Resource.Id.tem_certeza).Text = "Você Terminou o Livro, deseja avaliar agora?";
+							teminoView.FindViewById<TextView>(Resource.Id.tem_certeza).Text = "Você Terminou, vá na aba 'Lidos' para avaliá-lo";
 							removeAlert.SetPositiveButton("Avaliar", (object senderUpdate, DialogClickEventArgs eUpdate) => {
-								leitura.estado = EstadoLeitura.Terminado;
-								DateTime data = DateTime.Now;
-								leitura.terminoeitura = new Data (data.Day, data.Month,data.Year); //atualiza a data de termino
-								database.AtualizarLeitura(leitura);
-								alert.Dismiss();
-								lendoFrangment.OnResume();
-								//tem que atualizar a view
-							});
-							removeAlert.SetNegativeButton("Depois", (object senderUpdate, DialogClickEventArgs eUpdate) => {
 								leitura.estado = EstadoLeitura.Terminado;
 								DateTime data = DateTime.Now;
 								leitura.terminoeitura = new Data (data.Day, data.Month,data.Year); //atualiza a data de termino

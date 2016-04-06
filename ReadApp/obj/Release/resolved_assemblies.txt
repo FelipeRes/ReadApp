@@ -1,0 +1,8 @@
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\ReadApp.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\Mono.Android.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\mscorlib.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\System.Core.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\System.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\System.Xml.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\System.Runtime.Serialization.dll
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Release\android\assets\System.ServiceModel.Internals.dll

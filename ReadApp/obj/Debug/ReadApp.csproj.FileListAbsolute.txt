@@ -29,5 +29,8 @@ C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\uploadflags
 C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\lido_item.xml
 C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\lido_tab.xml
 C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\lido_informacao.xml
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\capitulo_item.xml
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\adicionar_capitulo.xml
+C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\res\layout\capitulo_informacao.xml
 C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\obj\Debug\ReadApp.dll.mdb
 C:\Users\Felipe Resende\Documents\Projects\ReadApp\ReadApp\bin\Debug\ReadApp.dll.mdb
