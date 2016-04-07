@@ -14,6 +14,17 @@ Features:
 
 6.0	– Avaliação objetiva do livro: Rank por estrelas.
 
+###Diagrana de classes
+
+![alt tag](https://github.com/FelipeRes/ReadApp/blob/master/Diagramas/Diagrama%20de%20Classes.png)
+
+###Banco de dados:
+
+![alt tag](https://github.com/FelipeRes/ReadApp/blob/master/Diagramas/Banco%20de%20Dados.png)
+
+###Mockup do Aplicativo
+
+![alt tag](https://github.com/FelipeRes/ReadApp/blob/master/Diagramas/Interface.svg)
 
 ###Classes: 
 **Livro**: Classe básica da aplicação que contem as informações essenciais ao livro, assim como uma lista de capítulos e gêneros. Ainda possui uma variável de avaliação que serve de nota para o livro.
