@@ -49,7 +49,7 @@ namespace ReadApp{
 					for(int i = 0; i<checkBoxList.Count; i++){
 						if(checkBoxList[i].Checked){
 							livro.adicionarGenero(GeneroExtend.GeneroPorNome(checkBoxList[i].Text));
-							Android.Widget.Toast.MakeText(view.Context,checkBoxList[i].Text, Android.Widget.ToastLength.Short).Show();
+							Android.Widget.Toast.MakeText(view.Context,"LivroAdicionado", Android.Widget.ToastLength.Short).Show();
 						}
 					}
 					DataBaseDAO database = new DataBaseDAO(this);
