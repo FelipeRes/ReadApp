@@ -1,4 +1,6 @@
 # ReadApp
+O apk se encontra no diretório https://github.com/FelipeRes/ReadApp/tree/master/ReadApp/bin/Release
+
 Projeto Aplicativo de Acompanhamento de Leitura ReadApp. Desenvolvido por Felipe Resende no Instituto Federal do Piauí.
 Features:
 
